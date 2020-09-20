@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { firestore } from "../firebase";
-import { colledIdsAndDocs } from "../utilities";
+import { collectIdsAndDocs } from "../utilities";
 
 import Posts from "./Posts";
 
@@ -12,7 +12,7 @@ class Application extends Component {
   componentDidMount = async () => {
     const snapshot = await firestore.collection("posts").get();
 
-    const posts = snapshot.docs.map(colledIdsAndDocs);
+    const posts = snapshot.docs.map(collectIdsAndDocs);
 
     this.setState({ posts });
   };
@@ -24,7 +24,7 @@ class Application extends Component {
     const docRef = await firestore.collection("posts").add(post);
     const doc = await docRef.get();
 
-    const newPost = colledIdsAndDocs(doc);
+    const newPost = collectIdsAndDocs(doc);
 
     this.setState({ posts: [newPost, ...posts] });
   };

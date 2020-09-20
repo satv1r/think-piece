@@ -1,3 +1,3 @@
-export const colledIdsAndDocs = (doc) => {
+export const collectIdsAndDocs = (doc) => {
   return { id: doc.id, ...doc.data() };
 };
