@@ -1,7 +1,7 @@
 // import { auth } from "firebase-admin";
 
 import React, { Component } from "react";
-import { auth } from "../firebase";
+import { auth, createUserProfileDocument } from "../firebase";
 
 class SignUp extends Component {
   state = { displayName: "", email: "", password: "" };
@@ -23,7 +23,7 @@ class SignUp extends Component {
         password
       );
 
-      user.updateProfile({ displayName });
+      createUserProfileDocument(user, { displayName });
     } catch (error) {
       console.log(error);
     }
