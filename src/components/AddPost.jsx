@@ -29,6 +29,8 @@ class AddPost extends Component {
       createdAt: new Date(),
     };
 
+    console.log(post);
+
     firestore.collection("posts").add(post);
 
     this.setState({ title: "", content: "" });
