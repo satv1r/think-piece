@@ -3,6 +3,7 @@ import { firestore, auth, createUserProfileDocument } from "../firebase";
 import { collectIdsAndDocs } from "../utilities";
 import Authentication from "./Authentication";
 import UserProfile from "../components/UserProfile";
+import PostPage from "../components/PostPage";
 
 import Posts from "./Posts";
 
@@ -33,6 +34,7 @@ class Application extends Component {
         <Switch>
           <Route exact path="/" component={Posts} />
           <Route exact path="/profile" component={UserProfile} />
+          <Route exact path="/posts/:id" component={PostPage} />
         </Switch>
       </main>
     );
